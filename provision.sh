@@ -48,6 +48,7 @@ sudo mysql -u root << EOF
 EOF
 # fi
 
+2-initial-django
 # superuser名字
 USER="admin"
 # superuser密码
@@ -69,6 +70,7 @@ else:
 "
 printf "$script" | python manage.py shell
 
+main
 
 # 如果想直接进入/vagrant路径下
 # 请输入vagrant ssh命令进入

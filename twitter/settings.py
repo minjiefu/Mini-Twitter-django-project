@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'accounts',
+    'debug_toolbar',
+    'tweets',
 ]
 
 REST_FRAMEWORK = {
@@ -49,6 +51,7 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,7 +59,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+
+INTERNAL_IPS = ['10.0.2.2']
 
 ROOT_URLCONF = 'twitter.urls'
 

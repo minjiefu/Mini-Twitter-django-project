@@ -1,13 +1,13 @@
 """twitter URL Configuration
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The `urlpatterns` list routes URLs to views.py. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
+Function views.py
+    1. Add an import:  from my_app import views.py
+    2. Add a URL to urlpatterns:  path('', views.py.home, name='home')
+Class-based views.py
+    1. Add an import:  from other_app.views.py import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
@@ -20,11 +20,14 @@ from django.conf import settings
 
 from accounts.api.views import UserViewSet, AccountViewSet
 from tweets.api.views import TweetViewSet
+from friendships.api.views import FriendshipViewSet
+
 
 router = routers.DefaultRouter()
 router.register(r'api/users', UserViewSet)
 router.register(r'api/accounts', AccountViewSet, basename='accounts')
 router.register(r'api/tweets', TweetViewSet, basename='tweets')
+router.register(r'api/friendships', FriendshipViewSet, basename='friendships')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

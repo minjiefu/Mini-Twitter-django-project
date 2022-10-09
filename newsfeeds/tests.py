@@ -12,22 +12,21 @@ FOLLOW_URL = '/api/friendships/{}/follow/'
 class NewsFeedApiTests(TestCase):
 
     def setUp(self):
-        self.anonymous_client = APIClient()
 
-        self.linghu = self.create_user('linghu', 'linghu@gmail.com')
+        self.linghu = self.create_user('linghu')
         self.linghu_client = APIClient()
         self.linghu_client.force_authenticate(self.linghu)
 
-        self.dongxie = self.create_user('dongxie','dongxie@gmail.com')
+        self.dongxie = self.create_user('dongxie')
         self.dongxie_client = APIClient()
         self.dongxie_client.force_authenticate(self.dongxie)
 
         # create followings and followers for dongxie
         for i in range(2):
-            follower = self.create_user('dongxie_follower{}'.format(i), 'follower@gmail.com')
+            follower = self.create_user('dongxie_follower{}'.format(i))
             Friendship.objects.create(from_user=follower, to_user=self.dongxie)
         for i in range(3):
-            following = self.create_user('dongxie_following{}'.format(i),'following@gmail.com')
+            following = self.create_user('dongxie_following{}'.format(i))
             Friendship.objects.create(from_user=self.dongxie, to_user=following)
 
     def test_list(self):

@@ -1,3 +1,5 @@
 .git
 .idea
 .vagrant
+media/
+local_settings.py

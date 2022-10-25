@@ -1,4 +1,6 @@
 # checkout https://www.neilwithdata.com/django-sql-logging
+import os
+
 LOGGING = {
     'version': 1,
     'filters': {
